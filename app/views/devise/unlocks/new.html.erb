@@ -1,0 +1,39 @@
+<div class ="navbar navbar-inverse navbar-static-top "></div>
+<h2>Resend unlock instructions</h2>
+
+<%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Resend unlock instructions" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+
+
+<footer >
+    <div class="navbar navbar-inverse navbar-fixed-bottom">
+        <div class="container">
+           
+           <div class="col-md-4" >
+            <font color="blue">Copyright &copy; 2016 CSC 667 Group # 4 </font>
+            </div>
+
+            <div class="col-md-8">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Home</a></li>
+                    <li><a data-popup-open="#" href= "#">Terms &amp; Conditions</a></li>
+                    <li><a data-popup-open="#" href="#">Privacy Policy</a></li>
+                    <li><a data-popup-open="#" href="#">About Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>

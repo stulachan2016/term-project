@@ -1,0 +1,111 @@
+  .navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+
+  .textarea {
+    overflow-y: scroll;
+    resize: none; 
+    background-color: white;
+  }
+
+  .main-table {
+    background-color: green;
+    height: 650px;
+  }
+
+  .my-hands {
+    background-color: black;
+    height: 100px;
+    position: relative;
+    left:15%;
+  }
+  
+  /* Set gray background color and 100% height */
+  .sidenav {
+    padding-top: 20px;
+    background-color: #f1f1f1;
+    height: 850px;
+  }
+
+  .playing-button{
+    background-color: #006633;
+    color: white;
+    border: 1px solid white;
+    width: 120px;
+  }
+
+  .score {
+    position: relative;
+    bottom: 10px;
+    border: none;
+    background-color: green;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 9px;
+  }
+
+  .card{
+    width: 60px;
+    height: 100px;
+    border: 1px;
+    border-radius: 4px;
+    background-color: green;
+    background-size: contain;
+    border-color: white;
+  }
+
+  .card-black{
+    width: 60px;
+    height: 100px;
+    border: 1px;
+    border-radius: 5px;
+    background-color: black;
+    background-size: contain;
+    border-color: white;
+  }
+
+  .fourth-cards{
+    position: absolute;
+    left:63%;
+    margin-top: 10px;
+    margin-bottom: 0px;
+  }
+
+  .second-cards{
+    position: relative;
+    left: 63%;
+    margin-top: 0px;
+    margin-bottom: -20px;
+  }
+
+  .first-cards{
+    margin-bottom: -20px;
+    position: relative;
+  }
+
+  .third-cards{
+    position: relative;
+    left: 65%;
+    margin-bottom: -20px;
+  }
+
+  .table-cards{
+    margin-bottom: -20px;
+    position: relative;
+    left: 44%;
+
+  }
+
+
+  body {
+    background-color: black;
+  }
+  /* Set black background color, white text and some padding */
+  footer {
+    background-color: #555;
+    color: white;
+    padding: 15px;
+  }

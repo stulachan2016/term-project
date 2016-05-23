@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Table</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    .textarea {
+      overflow-y: scroll;
+      resize: none; 
+      background-color: white;
+    }
+
+    .main-table {
+      background-color: green;
+      height: 650px;
+    }
+
+    .my-hands {
+      background-color: black;
+      height: 100px;
+      position: relative;
+      left:15%;
+    }
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 850px;
+    }
+
+    .playing-button{
+      background-color: #006633;
+      color: white;
+      border: 1px solid white;
+      width: 120px;
+    }
+
+    .score {
+      position: relative;
+      bottom: 10px;
+      border: none;
+      background-color: green;
+      color: black;
+      text-align: center;
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 9px;
+    }
+
+    .card{
+      width: 60px;
+      height: 100px;
+      border: 1px;
+      border-radius: 4px;
+      background-color: green;
+      background-size: contain;
+      border-color: white;
+    }
+
+    .card-black{
+      width: 60px;
+      height: 100px;
+      border: 1px;
+      border-radius: 5px;
+      background-color: black;
+      background-size: contain;
+      border-color: white;
+    }
+
+    .fourth-cards{
+      position: absolute;
+      left:55%;
+    }
+
+    .second-cards{
+      position: absolute;
+      left: 55%;
+    }
+
+    .first-cards{
+      position: absolute;
+    }
+
+    .third-cards{
+      position: absolute;
+      left: 51%;
+    }
+
+    .table-cards{
+      position: absolute;
+      left: 36%;
+
+    }
+
+
+    body {
+      background-color: black;
+    }
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">about</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="container-fluid text-center">     
+
+    <div class="col-sm-9">
+
+      <div class="row main-table">
+
+
+        <!-- Second player-->
+        <div class="row">
+
+          <div class="col-sm-9">
+
+            <div class="container">
+
+              <h4  style="color: black; margin-left: 250px; margin-bottom: 20px;" id="second-player-name"><center><strong>Empty Seat</strong></center></h4>
+
+              <table class="second-cards">
+
+                <tr height= "100px">
+                  <td style="padding: 0px 5px 0px 0px;"><div class="panel panel-default"><img id="second-player-firstCard" class="img-thumbnail card"></div></td>
+                  <td style="padding: 0px 0px 0px 0px;"><div class="panel panel-default"><img id="second-player-secondCard" class="img-thumbnail card"></div></td>
+                </tr>
+                <tr>
+                  <td colspan="2"><center><input type="text" id="second-player-score" class="score" disabled="true" value="-" maxlength="4" size="4"></center></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        <!-- Second player ends here -->
+
+
+        <div class="row" style="margin-top: 110px;">
+          <div class="col-sm-9">
+
+            <!-- first player hands-->
+            <div class="col-sm-2">
+
+              <div class="container">
+
+                <h4  style="color: black; margin-left: -1000px; margin-bottom: 20px;" id="first-player-name"><center><strong>Empty Seat</strong></center></h4>
+
+                <table class="first-cards">
+                  <tr height= "100px">
+                    <td style="padding: 0px 5px 0px 0px;"><div class="panel panel-default"><img id="first-player-firstCard" class="img-thumbnail card"></div></td>
+                    <td style="padding: 0px 0px 0px 0px;"><div class="panel panel-default"><img id="first-player-secondCard" class="img-thumbnail card"></div></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2"><center><input type="text" id="first-player-score" class="score" disabled="true" value="-" maxlength="4" size="4"></center></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <!-- First player ends here -->
+
+
+            <!-- Table cards -->
+            <div class="col-sm-5 col-md-5 col-lg-5 col-xs-5">
+              <div class="container">
+
+                <h3  style="color: black; margin-left: -130px; margin-bottom: 20px; margin-top: -5px;" id="table-name"><center><strong>Table</strong></center></h3>
+
+                <table class="table-cards">
+
+                  <tr height= "100px">
+                    <td style="padding: 0px 5px 0px 0px;"><div class="panel panel-default"><img id="table-firstCard" class="img-thumbnail card"></div></td>
+                    <td style="padding: 0px 0px 0px 0px;"><div class="panel panel-default"><img id="table-secondCard" class="img-thumbnail card"></div></td>
+                    <td style="padding: 0px 0px 0px 5px;"><div class="panel panel-default"><img id="table-thirdCard" class="img-thumbnail card"></div></td>
+                  </tr>
+                  <tr>
+                    <td colspan="3"><center><input type="text" id="total-bet" class="score" disabled="true" value="-" maxlength="4" size="4"></center></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <!-- Table Cards end here -->
+
+
+            <!-- Third player cards -->
+            <div class="col-sm-2 col-md-2 col-lg-2 col-xs-2">
+              <div class="container">
+
+                <h4  style="color: black; margin-left: 150px; margin-bottom: 20px;" id="third-player-name"><center><strong>Empty Seat</strong></center></h4>
+
+                <table class="third-cards">
+
+                  <tr height= "100px">
+                    <td style="padding: 0px 5px 0px 0px;"><div class="panel panel-default"><img id="third-player-firstCard" class="img-thumbnail card"></div></td>
+                    <td style="padding: 0px 0px 0px 0px;"><div class="panel panel-default"><img id="third-player-firstCard" class="img-thumbnail card"></div></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2"><center><input type="text" id="third-player-score" class="score" disabled="true" value="-" maxlength="4" size="4"></center></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <!-- Third player ends here -->
+
+          </div>
+        </div>
+
+
+
+        <!-- Fourth Player hands -->
+        <div class="row" style="margin-top: 100px;">
+          <div class="col-sm-9">
+            <div class="container">
+
+            <h4  style="color: black; margin-left: 250px; margin-bottom: 20px;" id="fourth-player-name"><center><strong>Empty Seat</strong></center></h4>
+
+              <table class="fourth-cards">
+
+                <tr height= "100px">
+                  <td style="padding: 0px 5px 0px 0px;"><div class="panel panel-default"><img id="your-hand-firstCard" class="img-thumbnail card"></div></td>
+                  <td style="padding: 0px 0px 0px 0px;"><div class="panel panel-default"><img id="your-hand-firstCard" class="img-thumbnail card"></div></td>
+                </tr>
+                <tr>
+                  <td colspan="2"><center><input type="text" id="your-score" class="score" disabled="true" value="-" maxlength="4" size="4"></center></td>
+                </tr>
+              </table>              
+            </div>
+          </div>
+        </div>
+        <!-- Fourth player ends here -->
+
+      </div>
+
+      <div class="row" style="background-color: black">
+        <div class="col-sm-9">
+          <table class="my-hands">
+
+            <tr>
+
+              <th colspan="4" style="padding: 20px 0px 0px 406px;"><right><button type="button" onclick="sit()" class="btn-lg playing-button">
+                <span class="glyphicon "></span>Sit</button></right></th>
+
+                <th colspan="1" style="padding: 20px 0px 0px 20px;"><button id="start-btn" onclick="start()" type="button" class="btn-lg playing-button">
+                  <span class="glyphicon glyphicon-play"></span>Start</button></th>
+
+
+                  <th colspan="1" style="padding: 0px 0px 0px 20px;"><button id="leave-btn" type="button" class="btn-lg playing-button">
+                    <span class="glyphicon glyphicon-remove"></span>Leave</button></th>
+                  </tr>
+
+
+                  <tr height= "100px">
+                    <td style="padding: 20px 20px 0px 0px;"><div class="panel panel-default"><img id="my-hand-firstCard" class="img-thumbnail card-black"></div></td>
+                    <td style="padding: 20px 40px 0px 0px;"><div class="panel panel-default"><img id="my-hand-secondCard" class="img-thumbnail card-black"></div></td>
+
+                    <td style="padding: 0px 20px 0px 60px;"><button type="button" id="fold-btn" class="btn-lg playing-button">
+                      <span class="glyphicon glyphicon-thumbs-down"></span>Fold</button></td>
+
+                      <td style="padding: 0px 20px 0px 20px;"><button type="button" id="check-btn" class="btn-lg playing-button">
+                        <span class="glyphicon glyphicon-thumbs-up"></span>Check</button></td>
+
+                        <td style="padding: 0px 20px 0px 20px;"><button type="button" id="call-btn" class="btn-lg playing-button">
+                          <span class="glyphicon glyphicon-hand-up"></span>Call</button></td>
+
+                          <td style="padding: 0px 80px 0px 20px;"><button type="button" id="raise-btn" class="btn-lg playing-button" data-toggle="collapse" data-target="#raise-bet"><span class="glyphicon glyphicon-usd"></span>Raise</button></td>
+
+                          <td>
+                            <div id="raise-bet"class="collapse">
+                              <form role="form">
+                                <div class="form-group">
+                                  <input type="text" id="raiseAmount" maxlength="4" size="4">
+                                </div>
+                                <div class="form-group">
+                                  <button type="button" class="btn btn-primary">Bet</button>
+                                </div>
+                              </form>
+                            </div> 
+                          </td>
+                        </tr> 
+                      </table>
+                    </div>
+                  </div>
+
+                </div>
+
+
+                <div class="col-sm-3 sidenav">
+
+                  <label style="margin-top: 20px;"><h1><strong>Comment</strong></h1></label>
+
+                  <textarea class="form-control textarea" rows="27" id="comment" disabled="true" style="margin-top: 20px;"></textarea>
+
+                  <div class="dropdown" style="margin-top: 50px;">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="chatMessage" data-toggle="dropdown">Your Message
+                      <span class="caret"></span></button>
+                      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Nice Hand</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Good luck</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Lucky!</a></li>
+                      </ul>
+                      <button type="submit" class="btn btn-default">Submit</button>
+                    </div>
+
+
+                  </div>
+
+                </div>
+
+
+                <script> 
+
+                  document.getElementById("fold-btn").disabled = true;
+                  document.getElementById("fold-btn").style.background = 'gray';
+                  document.getElementById("check-btn").disabled = true;
+                  document.getElementById("check-btn").style.background = 'gray';
+                  document.getElementById("call-btn").disabled = true;
+                  document.getElementById("call-btn").style.background = 'gray';
+                  document.getElementById("raise-btn").disabled = true;
+                  document.getElementById("raise-btn").style.background = 'gray';
+                  document.getElementById("start-btn").disabled = true;
+                  document.getElementById("start-btn").style.background = 'gray';
+
+                  document.getElementById("first-player-score").value = "-";
+                  document.getElementById("second-player-score").value = "-";
+                  document.getElementById("third-player-score").value = "-";
+                  document.getElementById("fourth-player-score").value = "-";
+                  document.getElementById("total-bet").value = "-";
+
+                  function start(){
+
+                    var fstPyrFC = "<%= image_path ("cards/#{@card1_rank_p1}_of_#{@card1_suit_p1}.png") %>";
+                    var fstPyrSC = "<%= image_path ("cards/#{@card2_rank_p1}_of_#{@card2_suit_p1}.png") %>";
+
+                    document.getElementById("fold-btn").disabled = false;
+                    document.getElementById("fold-btn").style.background = '#006633';
+                    document.getElementById("check-btn").disabled = false;
+                    document.getElementById("check-btn").style.background = '#006633';
+                    document.getElementById("call-btn").disabled = false;
+                    document.getElementById("call-btn").style.background = '#006633';
+                    document.getElementById("raise-btn").disabled = false;
+                    document.getElementById("raise-btn").style.background = '#006633';
+
+                    document.getElementById("table-firstCard").src = "<%= image_path('card-back.png') %>";
+                    document.getElementById("table-secondCard").src = "<%= image_path('card-back.png') %>";
+                    document.getElementById("table-thirdCard").src = "<%= image_path('card-back.png') %>";
+
+                    document.getElementById("first-player-firstCard").src = "<%= image_path('card-back.png') %>";
+                    document.getElementById("first-player-secondCard").src = "<%= image_path('card-back.png') %>";
+
+                    document.getElementById("second-player-firstCard").src = "<%= image_path('card-back.png') %>";
+                    document.getElementById("second-player-secondCard").src = "<%= image_path('card-back.png') %>";
+
+                    
+                    document.getElementById("my-hand-firstCard").src = fstPyrFC;
+                    document.getElementById("my-hand-secondCard").src = fstPyrSC;
+
+                    document.getElementById("table-name").innerHTML = "<h3><center><strong>Wait!!</strong></center></h3>";
+                    setTimeout(endGame, 2000)
+
+                  }
+
+                  function endGame(){
+
+                    var fstPyrFC = "<%= image_path ("cards/#{@card1_rank_p1}_of_#{@card1_suit_p1}.png") %>";
+                    var fstPyrSC = "<%= image_path ("cards/#{@card2_rank_p1}_of_#{@card2_suit_p1}.png") %>";
+
+                    var scdPyrFC = "<%= image_path ("cards/#{@card1_rank_p2}_of_#{@card1_suit_p2}.png") %>";
+                    var scdPyrSC = "<%= image_path ("cards/#{@card2_rank_p2}_of_#{@card2_suit_p2}.png") %>";
+
+                    var tableFC = "<%= image_path ("cards/#{@card1_rank_t}_of_#{@card1_suit_t}.png") %>";
+                    var tableSC = "<%= image_path ("cards/#{@card2_rank_t}_of_#{@card2_suit_t}.png") %>";
+                    var tableTC = "<%= image_path ("cards/#{@card3_rank_t}_of_#{@card3_suit_t}.png") %>";
+
+
+                    document.getElementById("table-firstCard").src = tableFC;
+                    document.getElementById("table-secondCard").src = tableSC;
+                    document.getElementById("table-thirdCard").src = tableTC;
+
+                    document.getElementById("first-player-firstCard").src = fstPyrFC;
+                    document.getElementById("first-player-secondCard").src = fstPyrSC;
+
+                    document.getElementById("second-player-firstCard").src = scdPyrFC;
+                    document.getElementById("second-player-secondCard").src = scdPyrSC;
+
+                    document.getElementById("table-name").style.color = "red";
+                    document.getElementById("table-name").innerHTML = "<h3><center><strong><%= determine_hand %></strong></center></h3>";
+
+
+                  }
+
+                  function sit(){
+                    document.getElementById("start-btn").disabled = false;
+                    document.getElementById("start-btn").style.background = '#006633';
+
+                    document.getElementById("first-player-name").innerHTML = "<center><strong>Hamoon</strong></center>";
+                    
+                    var firstPlayerBet = 100;
+                    document.getElementById("first-player-score").value = "$" + firstPlayerBet;
+
+                    document.getElementById("second-player-name").innerHTML = "<center><strong>Sandeep</center>";
+
+                    var secondPlayerBet = 100;
+                    document.getElementById("second-player-score").value = "$" + secondPlayerBet;
+
+                    var tableScore = firstPlayerBet + secondPlayerBet;
+                    document.getElementById("total-bet").value = "$" + tableScore;
+                  }
+
+                </script>
+
+                <div class="out-put-result"></div>
+
+                <footer class="container-fluid text-center">
+                  <p>Copyright (C) 667GRP4</p>
+                </footer>
+
+              </body>
+              </html>

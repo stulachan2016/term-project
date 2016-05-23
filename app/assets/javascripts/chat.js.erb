@@ -1,0 +1,18 @@
+;(function ($) {
+
+  var pusher = new Pusher('<%= ENV["PUSHER_KEY"] %>');
+  var channel = pusher.subscribe('chat');
+
+  channel.bind('new_message', function (data) {
+  
+    $('.chat_messages').prepend('<li>' + data.name + ':' + data.message + '</li>');
+  });
+}(jQuery));
+
+
+pusher.connection.bind('connected', function () {
+  var socket_id = pusher.connection.socket_id;
+
+  $('#socket_id').val(socket_id);
+});
+

@@ -1,0 +1,313 @@
+<div class ="navbar navbar-inverse navbar-static-top ">
+    
+    <ul class= "nav navbar-nav navbar-right">
+    <li><%= link_to "Sign Out", destroy_user_session_path, :method =>'delete'%>
+    </li>
+    </ul>
+</div>
+
+<head>
+  
+
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+
+        // When the DOM is ready, initialize the scripts.
+        jQuery(function( $ ){
+            // Get a reference to the container.
+            var container = $( ".cont" );
+            // Bind the link to toggle the slide.
+            $( ".clickable").click(
+                function( event ){
+                    // Prevent the default event.
+                    event.preventDefault();
+                    // Toggle the slide based on its current
+                    // visibility.
+                    if (container.is( ":visible" )){
+                        // Hide - slide up.
+                        container.slideUp(500);
+                    } else {
+                        // Show - slide down.
+                        container.slideDown(500);
+                    }
+                }
+            );
+        });
+    </script>
+<%= favicon_link_tag 'favicon.ico' %>
+</head>
+<style>
+.clickable{
+
+width:  250px;
+height: 30px;
+
+left: 20px;
+position: fixed ;
+bottom: 120px ;
+}
+
+div.cont{
+    
+width: 900px;
+height: 290px;
+bottom: 195px ;
+display: none ;
+left: 20px ;
+position: fixed ;
+}
+#tex{
+  padding: 2px 2px;
+  background-color: #8b9dc3;
+  float:right;
+}
+#btn{
+  padding: 9px 9px;
+  background-color: #8b9dc3;
+   float:right;
+}
+
+.chat
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.chat li
+{
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px dotted #B3A9A9;
+}
+.chat li.left .chat-body
+{
+    margin-left: 60px;
+}
+.chat li.right .chat-body
+{
+    margin-right: 60px;
+}
+.chat li .chat-body p
+{
+    margin: 0;
+    color: #777777;
+}
+
+.panel .slidedown .glyphicon, .chat .glyphicon
+{
+    margin-right: 5px;
+}
+.panel-body
+{
+    overflow-y: scroll;
+    height: 200px;
+}
+::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+::-webkit-scrollbar
+{
+    width: 5px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+}
+
+
+<style>
+.jumbotron {
+   background: rgb(200, 54, 54); /* This is for ie8 and below */
+   background: rgba(149, 154, 157, 0.5);
+   
+}
+.card1
+{
+    width: 400px;
+    height: 200px;
+}
+</style>
+
+ <!-- Table list Div starts here-->
+<div class = "container">
+    
+   <div class="center jumbotron" >
+
+    <h4>
+        <div>Signed in as <%= current_user.email %></div>
+        
+    </h4>
+  
+  <h3>Pick Your Table</h3>
+<a>
+  <div class="row">
+
+  <div class="col-md-1">
+   <%= link_to "Table1", table_table_path, class: "btn btn-lg btn-primary" %>
+  </div>
+
+  <div class="col-md-1"> </div>
+  <div class="col-md-1"> </div>
+  <div class="col-md-1"> </div>
+  <div class="col-md-1"> </div>
+
+  <div class="col-md-1"> 
+   <a>Limit $1000 </a> 
+  </div>
+
+  <div class="col-md-1"> </div>
+  <div class="col-md-1"> </div>
+  <div class="col-md-1"> </div>
+  <div class="col-md-1"> </div>
+
+  <div class="col-md-1"> 
+    <a>Players 2/8 </a>
+  </div>
+
+  <div class="col-md-1"> </div>
+
+  </div>
+</a>
+  
+  </br>
+
+<a>
+  <div class="row">
+
+  <div class="col-md-1">
+   <%= link_to "Table2", "table_path", class: "btn btn-lg btn-primary" %>
+  </div>
+
+  <div class="col-md-1"> </div>
+  <div class="col-md-1"> </div>
+  <div class="col-md-1"> </div>
+  <div class="col-md-1"> </div>
+
+  <div class="col-md-1"> 
+   <a>Limit $1000 </a> 
+  </div>
+
+  <div class="col-md-1"> </div>
+  <div class="col-md-1"> </div>
+  <div class="col-md-1"> </div>
+  <div class="col-md-1"> </div>
+
+  <div class="col-md-1"> 
+    <a>Players 3/8 </a>
+  </div>
+
+  <div class="col-md-1"> </div>
+
+  </div>
+</a>
+  </br>
+<a>
+  <div class="row">
+
+  <div class="col-md-1">
+   <%= link_to "Table3", "#", class: "btn btn-lg btn-primary" %>
+  </div>
+
+  <div class="col-md-1"> </div>
+  <div class="col-md-1"> </div>
+  <div class="col-md-1"> </div>
+  <div class="col-md-1"> </div>
+
+  <div class="col-md-1"> 
+   <a>Limit $1000 </a> 
+  </div>
+
+  <div class="col-md-1"> </div>
+  <div class="col-md-1"> </div>
+  <div class="col-md-1"> </div>
+  <div class="col-md-1"> </div>
+
+  <div class="col-md-1"> 
+    <a>Players 5/8 </a>
+  </div>
+
+  <div class="col-md-1"> </div>
+
+  </div>
+</a>
+
+</br>
+
+
+</div>  <!-- Avaible Table div ends here-->
+
+<div style="display:none">
+  <%= hidden_field_tag :socket_id %>
+</div>
+<div class="cont">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <span class="glyphicon glyphicon-comment"></span>         
+                </div>
+                <div class="panel-body">
+                    <ul class="chat">
+                        <li class="left clearfix"><span class="chat-img pull-left">
+                            <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
+                        </span>
+                            <div class="chat-body clearfix">
+                                <div class="header">
+                                    <strong class="primary-font">User email </strong> 
+                                      <%= current_user.email %> 
+                                    <small class="pull-right text-muted">
+                                        <span class="glyphicon glyphicon-time"></span>Time</small>
+                                </div>
+                                <ul class="chat_messages"></ul>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+
+     
+                <div class="panel-footer">
+
+                    <%= form_for @chat_message, remote: true do |f| %>
+ 
+                    <div class="input-group">
+                      <div id ="tex"> <%= f.text_area :message, rows: 1, cols: 27%>
+                        <div id="btn">
+                         <%= f.submit 'Send' %></div>
+                        </div>
+                        </div>
+                    
+                     <% end %>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="padding: 0px 20px 0px 20px;" class="clickable"><button type="button" class="btn-primary btn-lg playing-button" data-toggle="collapse"><span class= "glyphicon glyphicon-envelope">Chat</span></button></div>
+<footer >
+    <div class="navbar navbar-inverse navbar-fixed-bottom">       
+           <div class="col-md-4" >
+            <font color="blue">Copyright &copy; 2016 CSC 667 Group # 4 </font>
+            </div>
+
+            <div class="col-md-8">
+                <ul class="nav navbar-nav navbar-right">
+    
+                    <li><a href="#">Home</a></li>
+                    <li><a data-popup-open="#" href= "#">Terms &amp; Conditions</a></li>
+                    <li><a data-popup-open="#" href="#">Privacy Policy</a></li>
+                    <li><a data-popup-open="#" href="#">About Us</a></li>
+                </ul>
+            </div>
+    </div>
+</footer>

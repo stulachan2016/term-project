@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Poker</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+
+</head>
+<body>
+
+	<% if user_signed_in? %>
+	<!--Logged in as <%= current_user.email %>-->
+
+	 	<p id="notice"><%= notice %></p>
+	 	
+	 	<% end %>
+	
+<%= yield %>
+
+
+
+<%= pusher_include_tag '2.2' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+
+       $('#notice').delay(5000).fadeOut('slow');
+
+        
+    });
+</script>
+
+</body>
+
+</html>

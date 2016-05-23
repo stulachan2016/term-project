@@ -1,0 +1,80 @@
+<head>
+<meta name="viewport" content="width=device-width" />
+
+</head>
+
+<div class ="navbar navbar-inverse navbar-static-top">
+    
+                            <ul class= "nav navbar-nav navbar-right">
+                                 
+                                 <li><a href="sign_in"><strong>Log in</strong></a></li>
+                        
+                          </ul>
+</div>
+
+<div class="container">
+       <section id="content">
+
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+
+
+<% end %>
+
+
+
+<%= render "devise/shared/links" %>
+
+</section>
+</div>
+
+<footer >
+    <div class="navbar navbar-inverse navbar-fixed-bottom">
+        <div class="container">
+           
+           <div class="col-md-4" >
+           <br>
+            <font color="blue">Copyright &copy; 2016 CSC 667 Group # 4 </font>
+            </br>
+            </div>
+
+            <div class="col-md-8">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    <li><a data-popup-open="#" href= "#">Terms &amp; Conditions</a></li>
+                    <li><a data-popup-open="#" href="#">Privacy Policy</a></li>
+                    <li><a data-popup-open="#" href="#">About Us</a></li>
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+</footer>
+
+
+
